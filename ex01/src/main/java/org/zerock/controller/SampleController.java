@@ -166,9 +166,16 @@ public class SampleController {
 	@RequestMapping("ex07")
 	public @ResponseBody ResponseEntity<String> ex07() {
 		HttpHeaders header = new HttpHeaders();//http 헤더 생성
-		header.add("Content-Type", "text/html;charset=UTF-8");
+		header.add("Content-Type", ""
+				+ "text/html;charset=UTF-8");
 		
 		return new ResponseEntity<>("홍길동", header,HttpStatus.OK);
+	}
+	
+	
+	@RequestMapping("custom404")
+	public String custom404() {
+		return "custom404";
 	}
 	
 }

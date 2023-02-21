@@ -10,7 +10,11 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.RequestEntity;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
@@ -158,6 +162,13 @@ public class SampleController {
 		dto.setAge(50);
 		dto.setName("미미");
 		return dto;
+	}
+	@RequestMapping("ex07")
+	public @ResponseBody ResponseEntity<String> ex07() {
+		HttpHeaders header = new HttpHeaders();//http 헤더 생성
+		header.add("Content-Type", "text/html;charset=UTF-8");
+		
+		return new ResponseEntity<>("홍길동", header,HttpStatus.OK);
 	}
 	
 }

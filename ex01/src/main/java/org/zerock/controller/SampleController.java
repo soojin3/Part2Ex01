@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.SampleDTO;
 import org.zerock.domain.SampleDTOList;
@@ -151,4 +152,12 @@ public class SampleController {
 		//model.addAttribute("aaa", "성공입니다.");Alert할때 이거 쓰면 계속 뜸 쓰지 말아라
 		return "/dbwrite";// 페이지가 아님 url이다.
 	}
+	@RequestMapping("ex06")
+	public @ResponseBody SampleDTO ex06() {
+		SampleDTO dto = new SampleDTO();
+		dto.setAge(50);
+		dto.setName("미미");
+		return dto;
+	}
+	
 }
